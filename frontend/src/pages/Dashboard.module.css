@@ -1,0 +1,215 @@
+/* ── Design tokens ──────────────────────────────────── */
+:root {
+  --font-display: "Syne", "DM Sans", system-ui, sans-serif;
+  --font-mono: "DM Mono", "Fira Mono", monospace;
+
+  --text-primary:   #1a1a18;
+  --text-secondary: #44443f;
+  --text-muted:     #6b6b65;
+  --text-faint:     #9b9b94;
+
+  --card-bg:      #ffffff;
+  --card-border:  rgba(0, 0, 0, 0.08);
+  --metric-bg:    #f4f3ef;
+  --border-faint: rgba(0, 0, 0, 0.06);
+  --border-medium:rgba(0, 0, 0, 0.14);
+  --row-hover:    #fafaf8;
+
+  --page-bg:      #f7f6f2;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary:   #f0ede6;
+    --text-secondary: #c2bfb5;
+    --text-muted:     #8f8c84;
+    --text-faint:     #5e5c56;
+
+    --card-bg:      #1e1e1c;
+    --card-border:  rgba(255, 255, 255, 0.08);
+    --metric-bg:    #252522;
+    --border-faint: rgba(255, 255, 255, 0.06);
+    --border-medium:rgba(255, 255, 255, 0.14);
+    --row-hover:    #232320;
+
+    --page-bg:      #161614;
+  }
+}
+
+/* ── Page shell ─────────────────────────────────────── */
+.page {
+  min-height: 100vh;
+  background: var(--page-bg);
+  padding: 2rem 2.5rem;
+  font-family: var(--font-display);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 1.75rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.headerLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.title {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.7px;
+  line-height: 1;
+}
+
+.subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.clock {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-faint);
+}
+
+.refreshBtn {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.refreshBtn:hover  { background: var(--metric-bg); color: var(--text-secondary); }
+.refreshBtn:disabled { opacity: 0.5; cursor: default; }
+
+/* ── Error banner ───────────────────────────────────── */
+.errorBanner {
+  background: #fcebeb;
+  color: #a32d2d;
+  border: 0.5px solid #f09595;
+  border-radius: 10px;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-family: var(--font-mono);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.25rem;
+}
+
+.retryBtn {
+  margin-left: auto;
+  background: none;
+  border: 0.5px solid #f09595;
+  border-radius: 6px;
+  color: #a32d2d;
+  font-size: 11px;
+  padding: 4px 10px;
+  cursor: pointer;
+  font-family: var(--font-mono);
+}
+
+/* ── Metric cards row ───────────────────────────────── */
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+  .metrics { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Events section ─────────────────────────────────── */
+.eventsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-family: var(--font-mono);
+}
+
+/* ── Cards / Schedule toggle ────────────────────────── */
+.toggleGroup {
+  display: flex;
+  background: var(--metric-bg);
+  border-radius: 8px;
+  padding: 3px;
+  gap: 2px;
+}
+
+.toggle {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 12px;
+  cursor: pointer;
+  transition: background 0.12s, color 0.12s;
+}
+.toggle:hover { color: var(--text-secondary); }
+
+.toggleActive {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 0.5px solid var(--card-border);
+  font-weight: 500;
+}
+
+/* ── Cards grid ─────────────────────────────────────── */
+.cardsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 12px;
+}
+
+/* ── States ─────────────────────────────────────────── */
+.loadingState,
+.emptyState {
+  padding: 3rem 2rem;
+  text-align: center;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 14px;
+}

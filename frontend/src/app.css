@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Syne:wght@400;500;700&display=swap");
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Syne", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app-nav {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  padding: 0.85rem 2.5rem;
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.08);
+  background: rgba(247, 246, 242, 0.9);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+@media (prefers-color-scheme: dark) {
+  .app-nav {
+    background: rgba(22, 22, 20, 0.9);
+    border-color: rgba(255, 255, 255, 0.07);
+  }
+}
+
+.app-logo {
+  font-family: "Syne", sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.3px;
+  color: #1a1a18;
+}
+
+@media (prefers-color-scheme: dark) {
+  .app-logo { color: #f0ede6; }
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-link {
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  color: #6b6b65;
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 7px;
+  transition: background 0.12s, color 0.12s;
+}
+
+.nav-link:hover {
+  background: rgba(0, 0, 0, 0.05);
+  color: #1a1a18;
+}
+
+.nav-link.active {
+  background: #1a1a18;
+  color: #f7f6f2;
+}
+
+@media (prefers-color-scheme: dark) {
+  .nav-link         { color: #8f8c84; }
+  .nav-link:hover   { background: rgba(255,255,255,0.06); color: #f0ede6; }
+  .nav-link.active  { background: #f0ede6; color: #1a1a18; }
+}

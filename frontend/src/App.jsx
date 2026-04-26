@@ -1,12 +1,20 @@
 import { BrowserRouter, Routes, Route, NavLink } from "react-router-dom";
 import Dashboard from "./pages/Dashboard.jsx";
 import DriverView from "./pages/DriverView.jsx";
+import "./app.css";
 
 function Nav() {
   return (
-    <nav style={{ padding: "1rem", borderBottom: "1px solid #e5e7eb", display: "flex", gap: "1rem" }}>
-      <NavLink to="/">Dashboard</NavLink>
-      <NavLink to="/driver">Driver View</NavLink>
+    <nav className="app-nav">
+      <span className="app-logo">EventFlow</span>
+      <div className="nav-links">
+        <NavLink to="/" end className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+          Dashboard
+        </NavLink>
+        <NavLink to="/driver" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>
+          Driver View
+        </NavLink>
+      </div>
     </nav>
   );
 }

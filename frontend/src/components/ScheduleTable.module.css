@@ -1,0 +1,73 @@
+.wrapper {
+  background: var(--card-bg);
+  border: 0.5px solid var(--card-border);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.headerRow,
+.row {
+  display: grid;
+  grid-template-columns: 64px 1fr 160px 90px 72px 90px;
+  gap: 12px;
+  padding: 10px 16px;
+  align-items: center;
+  font-size: 12px;
+}
+
+.headerRow {
+  background: var(--metric-bg);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+}
+
+.row {
+  border-top: 0.5px solid var(--border-faint);
+}
+
+.row:hover {
+  background: var(--row-hover);
+}
+
+.time {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.eventName {
+  font-weight: 500;
+  font-family: var(--font-display);
+  color: var(--text-primary);
+  font-size: 13px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.venue {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.stat {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--text-secondary);
+}
+
+.empty {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-faint);
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
